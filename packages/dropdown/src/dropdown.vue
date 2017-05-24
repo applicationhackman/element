@@ -89,11 +89,11 @@
           triggerElm.addEventListener('click', handleClick);
         }
       },
-      handleMenuItemClick(command, instance) {
+      handleMenuItemClick(command, passback, instance) {
         if (this.hideOnClick) {
           this.visible = false;
         }
-        this.$emit('command', command, instance);
+        this.$emit('command', {'command': command, 'passback': passback}, instance);
       }
     },
 
