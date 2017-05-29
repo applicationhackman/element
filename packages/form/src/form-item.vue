@@ -5,7 +5,7 @@
     'is-required': isRequired || required
   }">
     <label :for="prop" class="el-form-item__label" v-bind:style="labelStyle" v-if="label">
-      <slot name="label">{{label + form.labelSuffix}}</slot>
+      <slot name="label"><i v-if="fa" :class="fa"></i> {{label + form.labelSuffix}}</slot>
     </label>
     <div class="el-form-item__content" v-bind:style="contentStyle">
       <slot></slot>
@@ -52,6 +52,7 @@
     mixins: [emitter],
 
     props: {
+      fa: String,
       label: String,
       labelWidth: String,
       prop: String,
