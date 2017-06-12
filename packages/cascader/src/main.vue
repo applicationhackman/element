@@ -92,6 +92,7 @@ export default {
   },
 
   props: {
+    inline: Boolean,
     options: {
       type: Array,
       required: true
@@ -183,6 +184,9 @@ export default {
   },
 
   watch: {
+    inline() {
+      console.log(' CSK inline changing here ');
+    },
     menuVisible(value) {
       value ? this.showMenu() : this.hideMenu();
     },
@@ -245,7 +249,7 @@ export default {
       this.$emit('input', value);
       this.$emit('change', value);
 
-      if (close) {
+      if (close && !this.inline) {
         this.menuVisible = false;
       }
     },
@@ -317,7 +321,9 @@ export default {
       this.handlePick([], true);
     },
     handleClickoutside() {
-      this.menuVisible = false;
+      if (!this.inline) {
+        this.menuVisible = false;
+      }
     },
     handleClick() {
       if (this.disabled) return;
@@ -331,6 +337,7 @@ export default {
   },
 
   created() {
+    this.menuVisible = this.inline;
     this.debouncedInputChange = debounce(this.debounce, value => {
       const before = this.beforeFilter(value);
 

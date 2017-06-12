@@ -129,7 +129,7 @@
             <li
               class={{
                 'el-cascader-menu__item': true,
-                'el-cascader-menu__item--extensible': item.children,
+                'el-cascader-menu__item--extensible': (item.children.length !== 0),
                 'is-active': item.value === activeValue[menuIndex],
                 'is-disabled': item.disabled
               }}
@@ -158,7 +158,7 @@
       return (
         <transition name="el-zoom-in-top" on-after-leave={this.handleMenuLeave}>
           <div
-            v-show={visible}
+            v-show={visible && this.activeOptions.length !== 0}
             class={[
               'el-cascader-menus',
               popperClass
