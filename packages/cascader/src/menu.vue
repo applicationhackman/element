@@ -147,7 +147,7 @@
         return (
           <ul
             class={{
-              'el-cascader-menu': true,
+              'el-cascader-menu': (items.length !== 0),
               'el-cascader-menu--flexible': isFlat
             }}
             style={menuStyle}>
@@ -158,7 +158,7 @@
       return (
         <transition name="el-zoom-in-top" on-after-leave={this.handleMenuLeave}>
           <div
-            v-show={visible && this.activeOptions.length !== 0}
+            v-show={visible}
             class={[
               'el-cascader-menus',
               popperClass
