@@ -42,7 +42,7 @@
     <span class="el-cascader__label" v-show="inputValue === ''">
       <template v-if="showAllLevels">
         <template v-for="(label, index) in currentLabels">
-          {{ label }}
+          {{ label }} 
           <span v-if="index < currentLabels.length - 1"> / </span>
         </template>
       </template>
@@ -92,7 +92,6 @@ export default {
   },
 
   props: {
-    inline: Boolean,
     options: {
       type: Array,
       required: true
@@ -149,7 +148,7 @@ export default {
 
   data() {
     return {
-      currentValue: this.value,
+      currentValue: this.value || [],
       menu: null,
       debouncedInputChange() {},
       menuVisible: false,
@@ -184,9 +183,6 @@ export default {
   },
 
   watch: {
-    inline() {
-      console.log(' CSK inline changing here ');
-    },
     menuVisible(value) {
       value ? this.showMenu() : this.hideMenu();
     },
@@ -249,8 +245,10 @@ export default {
       this.$emit('input', value);
       this.$emit('change', value);
 
-      if (close && !this.inline) {
+      if (close) {
         this.menuVisible = false;
+      } else {
+        this.$nextTick(this.updatePopper);
       }
     },
     handleInputChange(value) {
@@ -259,6 +257,7 @@ export default {
 
       if (!value) {
         this.menu.options = this.options;
+        this.$nextTick(this.updatePopper);
         return;
       }
 
@@ -283,6 +282,7 @@ export default {
         }];
       }
       this.menu.options = filteredFlatOptions;
+      this.$nextTick(this.updatePopper);
     },
     renderFilteredOptionLabel(inputValue, optionsStack) {
       return optionsStack.map((option, index) => {
@@ -321,9 +321,7 @@ export default {
       this.handlePick([], true);
     },
     handleClickoutside() {
-      if (!this.inline) {
-        this.menuVisible = false;
-      }
+      this.menuVisible = false;
     },
     handleClick() {
       if (this.disabled) return;
@@ -337,7 +335,6 @@ export default {
   },
 
   created() {
-    this.menuVisible = this.inline;
     this.debouncedInputChange = debounce(this.debounce, value => {
       const before = this.beforeFilter(value);
 

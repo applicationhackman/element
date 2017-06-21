@@ -20,14 +20,13 @@
 
     props: {
       command: String,
-      passback: Object,
       disabled: Boolean,
       divided: Boolean
     },
 
     methods: {
       handleClick(e) {
-        this.dispatch('ElDropdown', 'menu-item-click', [this.command, this.passback, this]);
+        this.dispatch('ElDropdown', 'menu-item-click', [this.command, this]);
       }
     }
   };

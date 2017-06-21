@@ -62,6 +62,7 @@ import CarouselItem from '../packages/carousel-item/index.js';
 import Collapse from '../packages/collapse/index.js';
 import CollapseItem from '../packages/collapse-item/index.js';
 import Cascader from '../packages/cascader/index.js';
+import CascaderGroup from '../packages/cascader-group/index.js';
 import ColorPicker from '../packages/color-picker/index.js';
 import Transfer from '../packages/transfer/index.js';
 import locale from 'element-ui/src/locale';
@@ -126,6 +127,7 @@ const components = [
   Collapse,
   CollapseItem,
   Cascader,
+  CascaderGroup,
   ColorPicker,
   Transfer,
   CollapseTransition
@@ -158,7 +160,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 
 module.exports = {
-  version: '1.3.3',
+  version: '1.3.7',
   locale: locale.use,
   i18n: locale.i18n,
   install,
@@ -225,6 +227,7 @@ module.exports = {
   Collapse,
   CollapseItem,
   Cascader,
+  CascaderGroup,
   ColorPicker,
   Transfer
 };

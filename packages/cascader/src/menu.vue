@@ -1,4 +1,6 @@
 <script>
+  import { isDef } from 'element-ui/src/utils/shared';
+
   export default {
     name: 'ElCascaderMenu',
 
@@ -54,7 +56,7 @@
             const level = activeOptions.length;
             activeOptions[level] = options;
             let active = activeValue[level];
-            if (active) {
+            if (isDef(active)) {
               options = options.filter(option => option.value === active)[0];
               if (options && options.children) {
                 loadActiveOptions(options.children, activeOptions);
@@ -129,7 +131,7 @@
             <li
               class={{
                 'el-cascader-menu__item': true,
-                'el-cascader-menu__item--extensible': (item.children.length !== 0),
+                'el-cascader-menu__item--extensible': item.children,
                 'is-active': item.value === activeValue[menuIndex],
                 'is-disabled': item.disabled
               }}
@@ -147,10 +149,11 @@
         return (
           <ul
             class={{
-              'el-cascader-menu': (items.length !== 0),
+              'el-cascader-menu': true,
               'el-cascader-menu--flexible': isFlat
             }}
             style={menuStyle}>
+            <h2>Org Title </h2>
             {items}
           </ul>
         );

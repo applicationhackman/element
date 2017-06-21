@@ -331,6 +331,10 @@
               "title": "Cascader"
             },
             {
+              "path": "/cascader-group",
+              "title": "Cascader-group"
+            },
+            {
               "path": "/switch",
               "title": "Switch"
             },
