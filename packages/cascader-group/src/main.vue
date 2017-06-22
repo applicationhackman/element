@@ -202,7 +202,6 @@ export default {
       this.menu.options = this.options;
       this.$nextTick(_ => {
         this.updatePopper();
-        this.menu.inputWidth = this.$refs.input.$el.offsetWidth - 2;
       });
     },
     hideMenu() {
