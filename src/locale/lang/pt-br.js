@@ -67,7 +67,7 @@ export default {
     },
     pagination: {
       goto: 'Ir para',
-      pagesize: '/pagina',
+      pagesize: '/página',
       total: 'Total {total}',
       pageClassifier: ''
     },

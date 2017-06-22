@@ -266,4 +266,3 @@ describe('ColorPicker', () => {
     }, ANIMATION_TIME);
   });
 });
-
