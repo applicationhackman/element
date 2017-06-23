@@ -153,7 +153,6 @@
               'el-cascader-menu--flexible': isFlat
             }}
             style={menuStyle}>
-            <h2> Items Title </h2>
             {items}
           </ul>
         );

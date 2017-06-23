@@ -78,6 +78,8 @@ export default {
           children: 'children',
           label: 'label',
           value: 'value',
+          header: 'header',
+          description: 'description',
           disabled: 'disabled'
         };
       }
@@ -139,6 +141,12 @@ export default {
     },
     valueKey() {
       return this.props.value || 'value';
+    },
+    headerKey() {
+      return this.props.header || 'header';
+    },
+    descriptionKey() {
+      return this.props.description || 'description';
     },
     childrenKey() {
       return this.props.children || 'children';
