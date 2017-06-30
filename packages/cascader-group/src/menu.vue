@@ -37,7 +37,7 @@
         cache: false,
         get() {
           const activeValue = this.activeValue;
-          const configurableProps = ['label', 'value', 'children', 'disabled'];
+          const configurableProps = ['label', 'value', 'children', 'disabled', 'name', 'tagNameDescription'];
 
           const formatOptions = options => {
             options.forEach(option => {
@@ -94,6 +94,11 @@
         } else {
           this.$emit('activeItemChange', this.activeValue);
         }
+      },
+      handleMenuEvents(menuIndex, name, eventType) {
+        if (this.enableMenuEvents) {
+          this.$emit('handleMenuEvents', menuIndex, name, eventType);
+        }
       }
     },
 
@@ -108,11 +113,23 @@
 
       const menus = this._l(activeOptions, (menu, menuIndex) => {
         let isFlat = false;
+        let name = '';
+        let tagNameDescription = '';
+        const createNewItemEvent = {
+          on: {}
+        };
+        const customizeMenuEvent = {
+          on: {}
+        };
+        const editMenuEvent = {
+          on: {}
+        };
         const items = this._l(menu, item => {
           const events = {
             on: {}
           };
-
+          name = item.name;
+          tagNameDescription = item.tagNameDescription;
           if (item.__IS__FLAT__OPTIONS) isFlat = true;
 
           if (!item.disabled) {
@@ -126,7 +143,6 @@
               events.on.click = () => { this.select(item, menuIndex); };
             }
           }
-
           return (
             <li
               class={{
@@ -141,6 +157,10 @@
             </li>
           );
         });
+
+        createNewItemEvent.on.click = () => {this.handleMenuEvents(menuIndex, name, 'add');};
+        customizeMenuEvent.on.click = () => {this.handleMenuEvents(menuIndex, name, 'customize');};
+        editMenuEvent.on.click = () => {this.handleMenuEvents(menuIndex, name, 'edit');};
         let menuStyle = {};
         if (isFlat) {
           menuStyle.minWidth = this.inputWidth + 'px';
@@ -153,7 +173,52 @@
               'el-cascader-menu--flexible': isFlat
             }}
             style={menuStyle}>
-            {items}
+            <div class='el-cascader-head'>
+              <div class='el-row'>
+                <div class='el-col-20'>
+                  <div
+                    class={{
+                      'el-cascader-tag-name': true
+                    }}>{name}</div>
+                  <div
+                    class={{
+                      'el-cascader-tag-description': true
+                    }}>{tagNameDescription}</div>
+                </div>
+                <div
+                  v-show={this.enableMenuEvents}
+                  class={{
+                    'el-col-4': true
+                  }}
+                  {...editMenuEvent}
+                  >
+                  <i class="el-icon-edit"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class={{
+                'el-cascader-group-combine': true
+              }}>
+
+              <div
+                v-show={this.enableMenuEvents}
+                class={{
+                  'el-cascader-customize': true
+                }}
+                {...customizeMenuEvent}
+              ><i class="el-icon-setting"></i>
+              <span>Customize {name} fields</span></div>
+
+              {items}
+            </div>
+            <li
+              v-show={this.enableMenuEvents}
+              class={{
+                'el-cascader-menu__new-item': true
+              }}
+              {...createNewItemEvent}
+              >New {name}</li>
           </ul>
         );
       });

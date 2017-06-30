@@ -80,7 +80,9 @@ export default {
           value: 'value',
           header: 'header',
           description: 'description',
-          disabled: 'disabled'
+          disabled: 'disabled',
+          name: 'name',
+          tagNameDescription: 'tagNameDescription'
         };
       }
     },
@@ -102,6 +104,10 @@ export default {
       default: false
     },
     changeOnSelect: Boolean,
+    enableMenuEvents: {
+      type: Boolean,
+      default: false
+    },
     popperClass: String,
     expandTrigger: {
       type: String,
@@ -151,6 +157,12 @@ export default {
     childrenKey() {
       return this.props.children || 'children';
     },
+    nameKey() {
+      return this.props.name || 'name';
+    },
+    tagNameDescriptionKey() {
+      return this.props.tagNameDescription || 'tagNameDescription';
+    },
     currentLabels() {
       let options = this.options;
       let labels = [];
@@ -194,11 +206,13 @@ export default {
       this.menu.props = this.props;
       this.menu.expandTrigger = this.expandTrigger;
       this.menu.changeOnSelect = this.changeOnSelect;
+      this.menu.enableMenuEvents = this.enableMenuEvents;
       this.menu.popperClass = this.popperClass;
       this.popperElm = this.menu.$el;
       this.menu.$on('pick', this.handlePick);
       this.menu.$on('activeItemChange', this.handleActiveItemChange);
       this.menu.$on('menuLeave', this.doDestroy);
+      this.menu.$on('handleMenuEvents', this.handleMenuEvents);
     },
     showMenu() {
       if (!this.menu) {
@@ -266,6 +280,9 @@ export default {
       this.menu.options = filteredFlatOptions;
       this.$nextTick(this.updatePopper);
     },
+    handleMenuEvents(menuIndex, name, eventType) {
+      this.$emit('handle-menu-events', menuIndex, name, eventType);
+    },
     renderFilteredOptionLabel(inputValue, optionsStack) {
       return optionsStack.map((option, index) => {
         const label = option[this.labelKey];
@@ -325,7 +342,9 @@ export default {
           __IS__FLAT__OPTIONS: true,
           label: this.t('el.cascader.loading'),
           value: '',
-          disabled: true
+          disabled: true,
+          name: '',
+          tagNameDescription: ''
         }];
         before
           .then(() => {

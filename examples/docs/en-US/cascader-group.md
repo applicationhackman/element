@@ -16,196 +16,294 @@
         options: [{
           value: 'guide',
           label: 'Guide',
+          name: 'Org',
+          tagNameDescription: 'Description goes here',
           children: [{
             value: 'disciplines',
             label: 'Disciplines',
+            name: 'Department',
+            tagNameDescription: 'Description goes here',
             children: [{
               value: 'consistency',
-              label: 'Consistency'
+              label: 'Consistency',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'feedback',
-              label: 'Feedback'
+              label: 'Feedback',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'efficiency',
-              label: 'Efficiency'
+              label: 'Efficiency',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'controllability',
-              label: 'Controllability'
+              label: 'Controllability',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }]
           }, {
             value: 'navigation',
             label: 'Navigation',
+            name: 'Department',
+            tagNameDescription: 'Description goes here',
             children: [{
               value: 'side nav',
-              label: 'Side Navigation'
+              label: 'Side Navigation',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'top nav',
-              label: 'Top Navigation'
+              label: 'Top Navigation',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }]
           }]
         }, {
           value: 'component',
           label: 'Component',
+          name: 'Org',
+          tagNameDescription: 'Description goes here',
           children: [{
             value: 'basic',
             label: 'Basic',
+            name: 'Department',
+            tagNameDescription: 'Description goes here',
             children: [{
               value: 'layout',
-              label: 'Layout'
+              label: 'Layout',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'color',
-              label: 'Color'
+              label: 'Color',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'typography',
-              label: 'Typography'
+              label: 'Typography',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'icon',
-              label: 'Icon'
+              label: 'Icon',
+              name: 'Group',
             }, {
               value: 'button',
-              label: 'Button'
+              label: 'Button',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }]
           }, {
             value: 'form',
             label: 'Form',
+            name: 'Department',
+            tagNameDescription: 'Description goes here',
             children: [{
               value: 'radio',
-              label: 'Radio'
+              label: 'Radio',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'checkbox',
-              label: 'Checkbox'
+              label: 'Checkbox',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'input',
-              label: 'Input'
+              label: 'Input',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'input-number',
-              label: 'InputNumber'
+              label: 'InputNumber',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'select',
-              label: 'Select'
+              label: 'Select',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'cascader',
-              label: 'Cascader'
+              label: 'Cascader',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'switch',
-              label: 'Switch'
+              label: 'Switch',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'slider',
-              label: 'Slider'
+              label: 'Slider',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'time-picker',
-              label: 'TimePicker'
+              label: 'TimePicker',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'date-picker',
-              label: 'DatePicker'
+              label: 'DatePicker',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'datetime-picker',
-              label: 'DateTimePicker'
+              label: 'DateTimePicker',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'upload',
-              label: 'Upload'
+              label: 'Upload',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'rate',
-              label: 'Rate'
+              label: 'Rate',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'form',
-              label: 'Form'
+              label: 'Form',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }]
           }, {
             value: 'data',
             label: 'Data',
+            name: 'Department',
+            tagNameDescription: 'Description goes here',
             children: [{
               value: 'table',
-              label: 'Table'
+              label: 'Table',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'tag',
-              label: 'Tag'
+              label: 'Tag',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'progress',
-              label: 'Progress'
+              label: 'Progress',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'tree',
-              label: 'Tree'
+              label: 'Tree',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'pagination',
-              label: 'Pagination'
+              label: 'Pagination',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }, {
               value: 'badge',
-              label: 'Badge'
+              label: 'Badge',
+              name: 'Group',
+              tagNameDescription: 'Description goes here',
             }]
           }, {
             value: 'notice',
             label: 'Notice',
+            name: 'Department',
             children: [{
               value: 'alert',
-              label: 'Alert'
+              label: 'Alert',
+              name: 'Group',
             }, {
               value: 'loading',
-              label: 'Loading'
+              label: 'Loading',
+              name: 'Group',
             }, {
               value: 'message',
               label: 'Message'
             }, {
               value: 'message-box',
-              label: 'MessageBox'
+              label: 'MessageBox',
+              name: 'Group',
             }, {
               value: 'notification',
-              label: 'Notification'
+              label: 'Notification',
+              name: 'Group',
             }]
           }, {
             value: 'navigation',
             label: 'Navigation',
+            name: 'Department',
             children: [{
               value: 'menu',
-              label: 'NavMenu'
+              label: 'NavMenu',
+              name: 'Group',
             }, {
               value: 'tabs',
-              label: 'Tabs'
+              label: 'Tabs',
+              name: 'Group',
             }, {
               value: 'breadcrumb',
-              label: 'Breadcrumb'
+              label: 'Breadcrumb',
+              name: 'Group',
             }, {
               value: 'dropdown',
-              label: 'Dropdown'
+              label: 'Dropdown',
+              name: 'Group',
             }, {
               value: 'steps',
-              label: 'Steps'
+              label: 'Steps',
+              name: 'Group',
             }]
           }, {
             value: 'others',
             label: 'Others',
+            name: 'Department',
             children: [{
               value: 'dialog',
-              label: 'Dialog'
+              label: 'Dialog',
+              name: 'Group',
             }, {
               value: 'tooltip',
-              label: 'Tooltip'
+              label: 'Tooltip',
+              name: 'Group',
             }, {
               value: 'popover',
-              label: 'Popover'
+              label: 'Popover',
+              name: 'Group',
             }, {
               value: 'card',
-              label: 'Card'
+              label: 'Card',
+              name: 'Group',
             }, {
               value: 'carousel',
-              label: 'Carousel'
+              label: 'Carousel',
+              name: 'Group',
             }, {
               value: 'collapse',
-              label: 'Collapse'
+              label: 'Collapse',
+              name: 'Group',
             }]
           }]
         }, {
           value: 'resource',
           label: 'Resource',
+          name: 'Org',
+          tagNameDescription: 'Description goes here',
           children: [{
             value: 'axure',
-            label: 'Axure Components'
+            label: 'Axure Components',
+            name: 'Department',
           }, {
             value: 'sketch',
-            label: 'Sketch Templates'
+            label: 'Sketch Templates',
+            name: 'Department',
           }, {
             value: 'docs',
-            label: 'Design Documentation'
+            label: 'Design Documentation',
+            name: 'Department',
           }]
         }],
         optionsWithDisabled: [],
@@ -242,6 +340,13 @@
       },
       handleChange(value) {
         console.log(value);
+      },
+
+      handeMenuEvent(menuIndex, name, eventType) {
+        console.log('Menu event related handler');
+        console.log('Menu Index', menuIndex);
+        console.log('Menu name', name);
+        console.log('Menu eventType', eventType);
       }
     }
   };
@@ -293,6 +398,8 @@ There are two ways to expand child option items.
   <el-cascader-group
     :options="options"
     v-model="selectedOptions"
+    :enable-menu-events="false"
+    @handle-menu-events="handeMenuEvent"
     @change="handleChange">
   </el-cascader-group>
 </div>
@@ -302,6 +409,8 @@ There are two ways to expand child option items.
     expand-trigger="hover"
     :options="options"
     v-model="selectedOptions2"
+    :enable-menu-events="false"
+    @handle-menu-events="handeMenuEvent"
     @change="handleChange">
   </el-cascader-group>
 </div>
@@ -527,6 +636,8 @@ Disable an option by setting a `disabled` field in the option object.
 ```html
 <el-cascader-group
   :options="optionsWithDisabled"
+  :enable-menu-events="false"
+  @handle-menu-events="handeMenuEvent"
 ></el-cascader-group>
 <script>
   export default {
@@ -744,6 +855,8 @@ The input can display only the last level instead of all levels.
 <el-cascader-group
     :options="options"
     :show-all-levels="false"
+    :enable-menu-events="false"
+    @handle-menu-events="handeMenuEvent"
 ></el-cascader>
 <script>
   export default {
@@ -958,6 +1071,7 @@ The input can display only the last level instead of all levels.
 <el-cascader-group
   :options="options"
   v-model="selectedOptions3"
+  @handle-menu-events="handeMenuEvent"
 ></el-cascader-group>
 <script>
   export default {
@@ -1175,6 +1289,8 @@ Parent options can also be selected.
 <el-cascader-group
   :options="options"
   change-on-select
+  :enable-menu-events="false"
+    @handle-menu-events="handeMenuEvent"
 ></el-cascader-group>
 <script>
   export default {
@@ -1391,6 +1507,8 @@ Load child options when their parent option is clicked or hovered over.
 <el-cascader-group
   :options="options2"
   @active-item-change="handleItemChange"
+  :enable-menu-events="false"
+  @handle-menu-events="handeMenuEvent"
   :props="props"
 ></el-cascader-group>
 
@@ -1445,6 +1563,8 @@ Search and select options with a keyword.
     placeholder="Try searching: Guide"
     :options="options"
     filterable
+    :enable-menu-events="false"
+    @handle-menu-events="handeMenuEvent"
   ></el-cascader-group>
 </div>
 <div class="block">
@@ -1454,6 +1574,8 @@ Search and select options with a keyword.
     :options="options"
     filterable
     change-on-select
+    :enable-menu-events="false"
+    @handle-menu-events="handeMenuEvent"
   ></el-cascader-group>
 </div>
 
