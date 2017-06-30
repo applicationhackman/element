@@ -111,7 +111,7 @@ export default {
     handleMouseLeave() {
       this._timer = setTimeout(() => {
         this.showPopper = false;
-      }, 200);
+      }, 0);
     },
     handleDocumentClick(e) {
       let reference = this.reference || this.$refs.reference;
