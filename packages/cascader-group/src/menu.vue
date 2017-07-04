@@ -203,11 +203,11 @@
                 <div
                   v-show={this.enableMenuEvents}
                   class={{
-                    'el-col-4': true
+                    'el-col-4 text-right': true
                   }}
                   {...editMenuEvent}
                   >
-                  <i class="el-icon-edit"></i>
+                  <i class="fa fa-pencil fa-lg c-icon p10"></i>
                 </div>
               </div>
             </div>
@@ -219,21 +219,23 @@
               <div
                 v-show={this.enableMenuEvents}
                 class={{
-                  'el-cascader-customize': true
+                  'el-cascader-customize bb-d4 p10 mb10': true
                 }}
                 {...customizeMenuEvent}
-              ><i class="el-icon-setting"></i>
-              <span>Customize {name} fields</span></div>
+              ><i class="fa fa-cog fa-lg c-icon mr5"></i>
+              <span class='c-t2'>Customize {name} fields</span></div>
 
-              {items}
+              <div class="p5">
+                {items}
 
-              <div
-                v-show={this.enableMenuEvents}
-                class={{
-                  'el-cascader-menu__new-item': true
-                }}
-                {...createNewItemEvent}
-              >New {name}</div>
+                <div
+                  v-show={this.enableMenuEvents}
+                  class={{
+                    'el-cascader-menu__new-item c-t2 p5 mt10': true
+                  }}
+                  {...createNewItemEvent}
+                ><i class="fa fa-plus-circle fa-lg c-green mr5"></i> New {name}</div>
+              </div>
             </div>
           </div>
         );
