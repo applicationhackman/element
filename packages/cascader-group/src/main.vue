@@ -82,7 +82,8 @@ export default {
           description: 'description',
           disabled: 'disabled',
           name: 'name',
-          tagNameDescription: 'tagNameDescription'
+          tagNameDescription: 'tagNameDescription',
+          id: 'id'
         };
       }
     },
@@ -163,6 +164,9 @@ export default {
     tagNameDescriptionKey() {
       return this.props.tagNameDescription || 'tagNameDescription';
     },
+    idKey() {
+      return this.props.id || 'id';
+    },
     currentLabels() {
       let options = this.options;
       let labels = [];
@@ -178,6 +182,10 @@ export default {
   },
 
   watch: {
+    enableMenuEvents(value) {
+      console.log(' enableMenuEvents has been triggering ', this.enableMenuEvents, value);
+      this.showMenu();
+    },
     menuVisible(value) {
       value ? this.showMenu() : this.hideMenu();
     },
@@ -221,6 +229,7 @@ export default {
 
       this.menu.value = this.currentValue.slice(0);
       this.menu.visible = true;
+      this.menu.enableMenuEvents = this.enableMenuEvents;
       this.menu.options = this.options;
       this.$nextTick(_ => {
         this.updatePopper();
@@ -280,8 +289,8 @@ export default {
       this.menu.options = filteredFlatOptions;
       this.$nextTick(this.updatePopper);
     },
-    handleMenuEvents(menuIndex, name, eventType) {
-      this.$emit('handle-menu-events', menuIndex, name, eventType);
+    handleMenuEvents(menuObject) {
+      this.$emit('handle-menu-events', menuObject);
     },
     renderFilteredOptionLabel(inputValue, optionsStack) {
       return optionsStack.map((option, index) => {
@@ -344,7 +353,8 @@ export default {
           value: '',
           disabled: true,
           name: '',
-          tagNameDescription: ''
+          tagNameDescription: '',
+          id: ''
         }];
         before
           .then(() => {

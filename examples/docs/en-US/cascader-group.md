@@ -17,12 +17,14 @@
           value: 'guide',
           label: 'Guide',
           name: 'Org',
+          id:'232xc',
           tagNameDescription: 'Description goes here',
           children: [{
             value: 'disciplines',
             label: 'Disciplines',
             name: 'Department',
             tagNameDescription: 'Description goes here',
+            id:'232xc',
             children: [{
               value: 'consistency',
               label: 'Consistency',
@@ -48,6 +50,7 @@
             value: 'navigation',
             label: 'Navigation',
             name: 'Department',
+            id:'232xc',
             tagNameDescription: 'Description goes here',
             children: [{
               value: 'side nav',
@@ -65,6 +68,7 @@
           value: 'component',
           label: 'Component',
           name: 'Org',
+          id:'232xc',
           tagNameDescription: 'Description goes here',
           children: [{
             value: 'basic',
@@ -291,6 +295,7 @@
           value: 'resource',
           label: 'Resource',
           name: 'Org',
+          id:'232xc',
           tagNameDescription: 'Description goes here',
           children: [{
             value: 'axure',
@@ -342,11 +347,9 @@
         console.log(value);
       },
 
-      handeMenuEvent(menuIndex, name, eventType) {
+      handeMenuEvent(menuObject) {
         console.log('Menu event related handler');
-        console.log('Menu Index', menuIndex);
-        console.log('Menu name', name);
-        console.log('Menu eventType', eventType);
+        console.log('Menu menuObject', menuObject);
       }
     }
   };
@@ -398,7 +401,7 @@ There are two ways to expand child option items.
   <el-cascader-group
     :options="options"
     v-model="selectedOptions"
-    :enable-menu-events="false"
+    :enable-menu-events="true"
     @handle-menu-events="handeMenuEvent"
     @change="handleChange">
   </el-cascader-group>
@@ -409,7 +412,7 @@ There are two ways to expand child option items.
     expand-trigger="hover"
     :options="options"
     v-model="selectedOptions2"
-    :enable-menu-events="false"
+    :enable-menu-events="true"
     @handle-menu-events="handeMenuEvent"
     @change="handleChange">
   </el-cascader-group>

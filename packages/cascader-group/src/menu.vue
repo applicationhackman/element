@@ -37,7 +37,7 @@
         cache: false,
         get() {
           const activeValue = this.activeValue;
-          const configurableProps = ['label', 'value', 'children', 'disabled', 'name', 'tagNameDescription'];
+          const configurableProps = ['label', 'value', 'children', 'disabled', 'name', 'tagNameDescription', 'id'];
 
           const formatOptions = options => {
             options.forEach(option => {
@@ -95,9 +95,9 @@
           this.$emit('activeItemChange', this.activeValue);
         }
       },
-      handleMenuEvents(menuIndex, name, eventType) {
+      handleMenuEvents(menuObject) {
         if (this.enableMenuEvents) {
-          this.$emit('handleMenuEvents', menuIndex, name, eventType);
+          this.$emit('handleMenuEvents', menuObject);
         }
       }
     },
@@ -115,6 +115,7 @@
         let isFlat = false;
         let name = '';
         let tagNameDescription = '';
+        let menuId = '';
         const createNewItemEvent = {
           on: {}
         };
@@ -130,6 +131,7 @@
           };
           name = item.name;
           tagNameDescription = item.tagNameDescription;
+          menuId = item.id;
           if (item.__IS__FLAT__OPTIONS) isFlat = true;
 
           if (!item.disabled) {
@@ -144,7 +146,7 @@
             }
           }
           return (
-            <li
+            <div
               class={{
                 'el-cascader-menu__item': true,
                 'el-cascader-menu__item--extensible': item.children,
@@ -154,20 +156,33 @@
               {...events}
             >
               {item.label}
-            </li>
+            </div>
           );
         });
+        let menuObject = {};
+        menuObject.id = menuId;
+        menuObject.index = menuIndex;
+        menuObject.name = name;
 
-        createNewItemEvent.on.click = () => {this.handleMenuEvents(menuIndex, name, 'add');};
-        customizeMenuEvent.on.click = () => {this.handleMenuEvents(menuIndex, name, 'customize');};
-        editMenuEvent.on.click = () => {this.handleMenuEvents(menuIndex, name, 'edit');};
+        createNewItemEvent.on.click = () => {
+          menuObject.type = 'add';
+          this.handleMenuEvents(menuObject);
+        };
+        customizeMenuEvent.on.click = () => {
+          menuObject.type = 'customize';
+          this.handleMenuEvents(menuObject);
+        };
+        editMenuEvent.on.click = () => {
+          menuObject.type = 'edit';
+          this.handleMenuEvents(menuObject);
+        };
         let menuStyle = {};
         if (isFlat) {
           menuStyle.minWidth = this.inputWidth + 'px';
         }
 
         return (
-          <ul
+          <div
             class={{
               'el-cascader-menu': true,
               'el-cascader-menu--flexible': isFlat
@@ -211,15 +226,16 @@
               <span>Customize {name} fields</span></div>
 
               {items}
+
+              <div
+                v-show={this.enableMenuEvents}
+                class={{
+                  'el-cascader-menu__new-item': true
+                }}
+                {...createNewItemEvent}
+              >New {name}</div>
             </div>
-            <li
-              v-show={this.enableMenuEvents}
-              class={{
-                'el-cascader-menu__new-item': true
-              }}
-              {...createNewItemEvent}
-              >New {name}</li>
-          </ul>
+          </div>
         );
       });
       return (
